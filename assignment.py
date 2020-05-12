@@ -17,6 +17,7 @@ FROM
     charactercreator_character
     '''
 
+# QUESTION 1
 q1 = cursor.execute(total_characters).fetchall()
 print("Total Characters: ", q1[0][0])
 
@@ -40,6 +41,7 @@ WHERE
     or charactercreator_thief.is_sneaking IS NOT NULL
 '''
 
+# QUESTION 2
 q2 = cursor.execute(subclass_totals).fetchall()
 print("Total Characters per Subclass: ", q2[0][0])
 
@@ -50,6 +52,8 @@ select
 from
 	armory_item
 '''
+
+# QUESTION 3
 q3 = cursor.execute(total_items).fetchall()
 print("Total Items: ", q3[0][0])
 
@@ -61,6 +65,7 @@ from
     armory_weapon
 '''
 
+# QUESTION 4
 q4 = cursor.execute(total_weapons).fetchall()
 print("Total Weapons: ", q4[0][0])
 
@@ -77,6 +82,8 @@ from charactercreator_character_inventory
 group by character_id
 limit 20
 '''
+
+# QUESTION 5
 q5 = cursor.execute(character_items).fetchall()
 print("Character's Items: ", q5)
 
@@ -90,6 +97,8 @@ join armory_weapon on armory_weapon.item_ptr_id = charactercreator_character_inv
 group by character_id
 limit 20
 '''
+
+# QUESTION 6
 q6 = cursor.execute(character_weapons).fetchall()
 print("Character's Weapons: ", q6)
 
@@ -106,6 +115,7 @@ FROM(
 )
 '''
 
+# QUESTION 7
 q7 = cursor.execute(items_per_character).fetchall()
 print("Average Items per Character: ", q7[0][0])
 
@@ -122,6 +132,7 @@ FROM(
 )
 '''
 
+# QUESTION 8
 q8 = cursor.execute(weapons_per_character).fetchall()
 print("Average weapons per Character: ", q8[0][0])
 
