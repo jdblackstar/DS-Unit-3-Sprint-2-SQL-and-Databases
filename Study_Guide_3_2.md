@@ -2,16 +2,27 @@
 
 ## Introduction to SQL
 
+### Queries
+1. FROM
+2. JOIN
+3. WHERE
+4. GROUP BY
+5. HAVING
+6. SELECT
+7. ORDER BY
+8. LIMIT / OFFSET
+9. INSERT (INTO)
+
 ## SQL for Analysis
 
-### Queries
-1. SELECT
-2. FROM
-3. WHERE
-4. JOIN
-5. GROUP BY
-6. ORDER BY
-7. LIMIT
+### NOSQL
+
+### Elephant SQL
+
+#### Browser
+
+### PostgreSQL
+
 
 
 
