@@ -17,3 +17,36 @@ cursor.execute("SELECT * from test_table;") #TODO: share links related to this t
 results = cursor.fetchall()
 for row in results:
     print(type(row), row)
+
+#
+# INSERT SOME DATA
+#
+
+my_dict = {"a": 1, "b": ["dog", "cat", 42], "c": "true"}
+
+# sql = f"""
+# INSERT INTO test_table (name, data) VALUES
+# ("A row name", null),
+# ("Another row, with JSON", "{"a": 1, "b": ["dog", "cat", 42], "c": true}"::JSONB);
+# """
+
+# insertion_query = f"INERT INTO test_table (name, data) VALUES (%s, %s)"
+# cursor.execute(insertion_query,
+#     ("A rowwww", "null")
+# )
+# cursor.execute(insertion_query,
+#     ("Another row, with JSONNNN", json.dumps(my_dict))
+# )
+
+# h/t: https://stackoverflow.com/questions/8134602/psycopg2-insert-multiple-rows-with-one-query
+insertion_query = f"INSERT INTO test_table (name, data) VALUES %s"
+execute_values(cursor, insertion_query, [
+  ('A rowwwww', 'null'),
+  ('Another row, with JSONNNNN', json.dumps(my_dict)),
+  ('Third row', "3")
+]) # third param: data as a list of tuples!
+
+connection.commit() # actually save the records / run the transaction to insert rows
+
+cursor.close()
+connection.close()
