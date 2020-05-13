@@ -28,4 +28,6 @@
 
 ## NOSQL and Document Oriented Databases
 
+### Important to know what a computer cluster is
+
 ## Acid and Database Scalability Tradeoffs
