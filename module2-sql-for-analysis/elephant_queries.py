@@ -1,4 +1,9 @@
-import psycopg2 as psycho
+import os
+from dotenv import load_dotenv
+import psycopg2
+from psycopg2.extras import execute_values
+import json
+import pandas as pd
 
 DB_NAME="ixcugnqx"
 DB_USER="ixcugnqx"
