@@ -6,8 +6,11 @@ import psycopg2
 from psycopg2.extras import execute_values
 import pandas
 import numpy as np
+
 load_dotenv() #> loads contents of the .env file into the script's environment
 psycopg2.extensions.register_adapter(np.int64, psycopg2._psycopg.AsIs)
+
+
 #
 # READ PASSENGER DATA FROM THE CSV FILE
 #
@@ -17,6 +20,8 @@ CSV_FILEPATH = os.path.join(os.path.dirname(__file__), "..", "module2-sql-for-an
 df = pandas.read_csv(CSV_FILEPATH)
 print(df.dtypes)
 print(df.head())
+
+
 #
 # CONNECT TO THE PG DATABASE
 #
@@ -28,6 +33,8 @@ connection = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PW, host
 print(type(connection)) #> <class 'psycopg2.extensions.connection'>
 cursor = connection.cursor()
 print(type(cursor)) #> <class 'psycopg2.extensions.cursor'>
+
+
 #
 # CREATE A TABLE TO STORE THE PASSENGERS
 #
@@ -46,6 +53,8 @@ CREATE TABLE IF NOT EXISTS passengers (
 );
 """
 cursor.execute(table_creation_sql)
+
+
 #
 # INSERT DATA INTO THE PASSENGERS TABLE
 #
